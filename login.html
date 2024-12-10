@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Confeitaria Sempre Doce</title>
+    <link rel="stylesheet" href="static/login.css">
+    
+    <style>
+        .eye-icon {
+            cursor: pointer;
+            width: 20px; /* ajuste o tamanho conforme necessário */
+            position: absolute;
+            right: 10px;
+            top: 35px; /* ajuste conforme o alinhamento do seu input */
+        }
+        .input-group {
+            position: relative; /* para posicionar o ícone corretamente */
+        }
+        .social-login {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .social-button {
+            background-color: #f0f0f0; /* Cor de fundo dos botões */
+            border: 1px solid #ccc; /* Borda do botão */
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            width: 30%;
+            text-align: center;
+            text-decoration: none; /* Remove underline */
+            color: #333; /* Cor do texto */
+        }
+        .social-button img {
+            width: 20px; /* Ícone de redes sociais */
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo à Confeitaria Sempre Doce</h1>
+        <form class="login-form" onsubmit="event.preventDefault(); validarLogin();">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required placeholder="Digite seu email">
+            
+            <div class="input-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required placeholder="Digite sua senha">
+                <img src="img/olho.png" id="togglePassword" class="eye-icon" alt="Toggle Password Visibility">
+            </div>
+            
+            <button type="submit">Entrar</button>
+            <p>Não tem uma conta? <a href="registro.html">Crie uma agora</a></p>
+        </form>
+
+        <div class="social-login">
+            <a href="#" class="social-button" onclick="loginFacebook()">
+                <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook"> Facebook
+            </a>
+            <a href="#" class="social-button" onclick="loginGoogle()">
+                <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google"> Google
+            </a>
+            <a href="#" class="social-button" onclick="loginInstagram()">
+                <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram"> Instagram
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Seleciona os elementos de senha e ícone
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordField = document.querySelector('#password');
+
+        // Função para alternar entre mostrar/esconder a senha
+        function toggleVisibility(passwordInput, icon) {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.src = 'https://w7.pngwing.com/pngs/355/665/png-transparent-ui-eye-hide-view-look-privacy-user-interface-icon-thumbnail.png'; // Alterar para o ícone de "olho fechado"
+            } else {
+                passwordInput.type = 'password';
+                icon.src = 'https://w7.pngwing.com/pngs/221/536/png-transparent-eye-password-see-view-minimalisticons-icon-thumbnail.png'; // Ícone de "olho aberto"
+            }
+        }
+        
+        // Adiciona o evento de clique para o ícone
+        togglePassword.addEventListener('click', function() {
+            toggleVisibility(passwordField, togglePassword);
+        });
+
+        // Função para validar login
+        function validarLogin() {
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("password").value;
+
+            // Credenciais fixas
+            const emailFixo = "joaovictor@gmail.com";  // Atualizado
+            const senhaFixa = "senha123";   // Atualizado
+
+            if (email === emailFixo && senha === senhaFixa) {
+                alert("Login bem-sucedido!"); // Mensagem de sucesso
+                window.location.href = "index.html"; // Redireciona para cardapio.html
+            } else {
+                alert("Email ou senha incorretos!");
+                window.location.reload(); // Recarrega a página se as credenciais estiverem erradas
+            }
+        }
+
+        // Funções para login social (apenas exemplo, implementar corretamente com OAuth)
+        function loginFacebook() {
+            // Redireciona para a página de login do Facebook
+            window.location.href = "https://www.facebook.com/login/?locale=pt_BR";
+        }
+
+        function loginGoogle() {
+            // Redireciona para a página de login do Google
+            window.location.href = "https://accounts.google.com/ServiceLogin?hl=pt-BR";
+        }
+
+        function loginInstagram() {
+            // Redireciona para a página de login do Instagram
+            window.location.href = "https://www.instagram.com/accounts/login/";
+        }
+    </script>
+</body>
+</html>
+

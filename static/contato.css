@@ -1,0 +1,80 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+header {
+    background: linear-gradient(135deg, #ffeb3b, #fbc02d);
+    color: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    border-bottom: 2px solid #ffeb3b;
+    padding-bottom: 10px;
+    color: #f57f20;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.item input, .item select, .item textarea {
+    flex: 1;
+    margin-left: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #333;
+    color: #fff;
+}
